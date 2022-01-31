@@ -1,1 +1,68 @@
-<p>register works!</p>
+<div class="content-register">
+    <app-titles title="¡Hola! Configuremos su perfil" subtitle="Queremos conocerte mejor"></app-titles>
+    <div class="main">
+        <div class="card">
+            <p class="title-card">Imágen perfil</p>
+
+            <div class="img-profile">
+                <div class="bg" *ngIf="!image; else showImage">
+                    <i class="far fa-user"></i>
+                </div>
+                <ng-template #showImage>
+                    <img [src]="image | safeUrlImage" *ngIf="image" class="imageProfile">
+                </ng-template>
+            </div>
+
+            <input type="file" id="file" accept="image/*" #imageProfile (change)="loadImage()">
+            <label for="file" class="input-file">
+                <p class="placeholdertext">{{ placeholder }}</p>  
+                <i class="fas fa-cloud-upload-alt" *ngIf="!image; else iconDelete"></i>
+                <ng-template #iconDelete>
+                    <i class="fas fa-trash-alt icon-delete" (click)="deleteImage()"></i>
+                </ng-template>
+            </label>
+        </div>
+
+        <div class="content-form">
+            <h3>Tu información</h3>
+            <h2>Completa la siguiente información para completar tu perfil</h2>
+
+            <form [formGroup]="formRegister" (ngSubmit)="saveData()">
+                <mat-form-field appearance="outline">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Pasatiempo favorito</mat-label>
+                    <input type="text"                           
+                           matInput
+                           formControlName="hobby"
+                           [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option}}
+                      </mat-option>
+                    </mat-autocomplete>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Cumpleaños</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="birthday" (ngModelChange)="calculateAge()">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+                    <mat-label>Documento</mat-label>
+                    <input matInput formControlName="document" mask="99999999-9">
+                </mat-form-field>
+
+                <button mat-raised-button type="submit" class="btn-submit" [disabled]="formRegister.invalid || image.length < 10">
+                    Continuar
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>

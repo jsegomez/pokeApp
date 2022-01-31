@@ -1,0 +1,80 @@
+.content-register > h1, h2, h3, p, label, button{
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    color: #185A7D;
+    font-weight: 700;
+    size: 35px;
+    line-height: 52.5px;
+    margin: 0;
+}
+
+h2 {
+    color: #868686;
+    font-weight: 400;
+    size: 18px;
+    line-height: 27px;
+    margin: 0;
+}
+
+h3{
+    color: #01426A;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+/* Styles Card */
+.input-file{
+    color: #2C85BC;
+    height: 70px;
+    width: 334px;
+    background: white;
+    font-size: 14px;    
+    border-radius: 10px;
+    border: 1px dashed #9BB8D3;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;    
+}
+
+.input-file > i{
+    font-size: 22px;
+}
+
+/* ============= Styles form =============*/
+form{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-form{
+    width: 392px;
+    height: 600px;
+}
+
+.btn-submit{
+    width: 222px;
+    height: 50px;
+    background: #01426A;
+    color: white;
+}
+
+mat-form-field{
+    width: 100%;    
+}
+
+/* ============= Styles form =============*/
+
+/* Styles input file  */
+input[type="file"]{
+    display: none;    
+}
+
+.placeholdertext{
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0;
+}

@@ -1,0 +1,27 @@
+<div class="card">
+    <p class="name-user">{{ dataUser.name }}</p>
+
+    <div class="img-profile">
+        <div class="bg" *ngIf="!dataUser.image; else showImage">
+            <i class="far fa-user"></i>
+        </div>
+        <ng-template #showImage>
+            <img [src]="dataUser.image | safeUrlImage" *ngIf="dataUser.image" class="imageProfile">
+        </ng-template>
+    </div>
+
+    <table class="tabla-data-user">
+        <tr>
+            <td class="title-table">Pasatiempo:</td>
+            <td class="data-table">{{ dataUser.hobby }}</td>
+        </tr>
+        <tr>
+            <td class="title-table">Edad:</td>
+            <td class="data-table">{{ dataUser.age }} años</td>
+        </tr>
+        <tr *ngIf="dataUser.document">
+            <td class="title-table">DUI:</td>
+            <td class="data-table">{{ dataUser.document }}</td>
+        </tr>
+    </table>
+</div>

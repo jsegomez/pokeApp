@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+/* ===================== Fonts app ====================== */
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -17,6 +20,7 @@ h1, h2, h3, p, label, button{
     display: flex;
     justify-content: space-evenly;
 }
+/* ====================================================== */
 
 /* =========== Styles card =========== */
 .card{
@@ -74,9 +78,7 @@ h1, h2, h3, p, label, button{
     color: #9BB8D3;
 }
 
-
-/* Styles table */
-
+/* ======================= Styles table  =======================*/
 .tabla-data-user{
     width: 85%;    
 }
@@ -95,3 +97,14 @@ h1, h2, h3, p, label, button{
     font-weight: normal;
     text-align: end;
 }
+
+/* =============================================================*/
+
+/* ====================== Stykes buttons ========================*/
+.btn-submit{
+    width: 222px;
+    height: 50px;
+    background: #01426A;
+    color: white;    
+}
+/* =============================================================*/

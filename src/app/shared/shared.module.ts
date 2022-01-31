@@ -7,32 +7,29 @@ import { MaterialModule } from '../material/material.module';
 
 // Components
 import { HeaderComponent } from './components/header/header.component';
-import { CardComponent } from './components/card/card.component';
 import { TitlesComponent } from './components/titles/titles.component';
-
+import { CardUserComponent } from './components/card-user/card-user.component';
 
 // Pipes
 import { SafeUrlImagePipe } from './pipes/safe-url-image.pipe';
 
-
-
 @NgModule({
   declarations: [
-    HeaderComponent,
-    CardComponent,
+    HeaderComponent,    
     SafeUrlImagePipe,
-    TitlesComponent
+    TitlesComponent,
+    CardUserComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     MaterialModule
   ],
-  exports: [
-    CardComponent,
+  exports: [    
     HeaderComponent,    
     SafeUrlImagePipe,
-    TitlesComponent
+    TitlesComponent,
+    CardUserComponent
   ]
 })
 export class SharedModule { }

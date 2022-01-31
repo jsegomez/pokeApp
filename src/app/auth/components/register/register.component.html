@@ -1,4 +1,4 @@
-<div class="content-register">
+<div class="content-register" *ngIf="isLoading == false">
     <app-titles title="¡Hola! Configuremos su perfil" subtitle="Queremos conocerte mejor"></app-titles>
     <div class="main">
         <div class="card">
@@ -66,3 +66,10 @@
         </div>
     </div>
 </div>
+
+
+<app-loading *ngIf="isLoading"></app-loading>
+
+
+
+

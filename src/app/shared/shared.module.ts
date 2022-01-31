@@ -12,13 +12,17 @@ import { CardUserComponent } from './components/card-user/card-user.component';
 
 // Pipes
 import { SafeUrlImagePipe } from './pipes/safe-url-image.pipe';
+import { LoadingComponent } from './components/loading/loading.component';
+import { CardPokemonComponent } from './components/card-pokemon/card-pokemon.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,    
     SafeUrlImagePipe,
     TitlesComponent,
-    CardUserComponent
+    CardUserComponent,
+    LoadingComponent,
+    CardPokemonComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +33,9 @@ import { SafeUrlImagePipe } from './pipes/safe-url-image.pipe';
     HeaderComponent,    
     SafeUrlImagePipe,
     TitlesComponent,
-    CardUserComponent
+    CardUserComponent,
+    LoadingComponent,
+    CardPokemonComponent
   ]
 })
 export class SharedModule { }

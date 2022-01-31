@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
   placeholder: string = 'Adjuntar una foto';
   filteredOptions!: Observable<string[]>;
   options: string[] = this.dataHobby.getUser;
+  isLoading: boolean = false;
 
   public formRegister = this.formBuilder.group({
     name    : ['', [Validators.required]],
@@ -94,7 +95,11 @@ export class RegisterComponent implements OnInit {
       name, hobby, age: this.age, document, image: this.image
     }
     
-    this.dataUserService.setUser(user);    
-    this.router.navigate(['/auth/select-pokemons']);    
+    this.dataUserService.setUser(user);
+    this.isLoading = true;
+
+    setTimeout(() => {      
+      this.router.navigate(['/auth/select-pokemons']);    
+    }, 1500);
   }
 }

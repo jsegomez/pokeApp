@@ -14,8 +14,7 @@ import { Form, FormArray, FormBuilder, Validators } from '@angular/forms';
 export class SelectPokemonsComponent implements OnInit {
 
   constructor(    
-    private router: Router,
-    private formBuilder: FormBuilder,
+    private router: Router,    
     private pokeService: PokemonsService,
     private dataUserService: DataUserService,    
   ) { }
@@ -42,6 +41,7 @@ export class SelectPokemonsComponent implements OnInit {
   pokemons: Pokemon[] = [];
   pokeToSave: Pokemon[] = [];
   disabledCheck: boolean = false;
+  isLoading: boolean = false;
 
   addPokemon(pokemon: Pokemon, index: number){
     if(!this.pokeToSave.includes(pokemon)){
@@ -53,5 +53,15 @@ export class SelectPokemonsComponent implements OnInit {
     }
 
     if(this.pokeToSave.length >= 3) this.disabledCheck = true;
+  }
+
+  save(){
+    this.isLoading = true;
+    console.log(this.pokeToSave)
+    this.pokeService.setPokemons(this.pokeToSave);
+
+    setTimeout(() => {
+      this.router.navigate(['/pages']);
+    }, 1200);
   }
 }

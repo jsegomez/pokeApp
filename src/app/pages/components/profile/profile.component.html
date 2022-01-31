@@ -1,1 +1,31 @@
-<p>profile works!</p>
+<div class="main-content" *ngIf="dataUser">
+
+    <div class="container-titles">
+        <h1>¡Hola! {{ dataUser.name }}</h1>
+        <div class="btn-edit">
+            <i class="fas fa-pencil-alt"></i>
+            <p>Editar perfil</p>
+        </div>
+    </div>
+
+    <div class="container-pokemons">
+        <app-card-user [dataUser]="dataUser"></app-card-user>
+
+        <div class="container-details">
+            <div class="actions">
+                <h2>Mis Pokémons</h2>
+                <div class="btn-edit">
+                    <i class="fas fa-pencil-alt"></i>
+                    <p>Editar perfil</p>
+                </div>
+            </div>
+
+            <cdk-virtual-scroll-viewport appendOnly itemSize="50" class="example-viewport" class="vscroll">
+                <div *cdkVirtualFor="let pokemon of pokemons" class="example-item">
+                    <app-card-pokemon [pokemon]="pokemon"></app-card-pokemon>
+                </div>
+            </cdk-virtual-scroll-viewport>
+            
+        </div>
+    </div>
+</div>

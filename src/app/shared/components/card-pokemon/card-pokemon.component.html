@@ -1,0 +1,23 @@
+<div class="card-pokemon" *ngIf="pokemonDetails">
+    <div class="content-image">
+        <img [src]="pokemon.image" width="152px">
+        <h1>{{ pokemon.name }}</h1>
+        <h3>Genero</h3>
+    </div>
+
+    <div class="details-skills">
+        <div class="content-skills" *ngFor="let stat of pokemonDetails.stats">  
+            <table style="width:100%">
+                <tr>
+                    <th width="30%">
+                        <p>{{ stat.stat.name }}</p>        
+                    </th>
+                    <th width="60%">                        
+                        <mat-progress-bar mode="determinate" [value]="stat.base_stat">                            
+                        </mat-progress-bar>
+                    </th>
+                </tr>
+            </table>
+        </div>        
+    </div>
+</div>
